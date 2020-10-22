@@ -21,19 +21,19 @@ app.get("/quotes", function(request, response) {
   response.json(quotes);
 });
 
-app.delete("/quotes/random", function(request, response) {
-  response.json(lodash.sample(quotes));
-});
+// app.delete("/quotes/random", function(request, response) {
+//   response.json(lodash.sample(quotes));
+// });
 function pickFromArray(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 app.get("/quotes/search", function(request, response) {
-  let word = request.query.word;  
-  response.json(findQuotesByWord(quotes,word));
+  let term = request.query.term;  
+  response.json(findQuotesByWord(quotes,term));
 });
-function findQuotesByWord(quotes,word){
+function findQuotesByWord(quotes,term){
   return quotes.filter(quote=>{
-    return quote.quote.toLowerCase().includes(word.toLowerCase())|| quote.author.toLowerCase().includes(word.toLowerCase());
+    return quote.quote.toLowerCase().includes(term.toLowerCase())|| quote.author.toLowerCase().includes(term.toLowerCase());
   })
 }
 
