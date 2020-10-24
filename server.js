@@ -14,7 +14,7 @@ const  cors = require('cors');
 
 
 app.get("/", function(request, response) {
-  response.send("Berhane's Quote Server!  Ask me for /quotes, or /quotes/random using lodash or /quotes/search?word=(put a word to search)");
+  response.send("Berhane's Quote Server!  Ask me for /quotes, or /quotes/random using lodash or /quotes/search?term=(put a word to search)");
 });
 
 app.get("/quotes", function(request, response) {
